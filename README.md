@@ -79,13 +79,10 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
 3. Generate Keys
 
    ```sh
-   gpg2 --card-edit
+   gpg --card-edit
    ```
 
    ```
-
-   [truncated...]
-
    gpg/card> admin
    Admin commands are allowed
 
@@ -93,18 +90,6 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
    Make off-card backup of encryption key? (Y/n) n
 
    [PIN Entry pops up, enter 123456, which is the default pin]
-
-   What keysize do you want for the Signature key? (2048) 4096 [YubiKey NEO max is 2048]
-   [PIN Entry pops up, enter 12345678, which is the default admin pin]
-   The card will now be re-configured to generate a key of 4096 bits
-
-   What keysize do you want for the Encryption key? (2048) 4096 [YubiKey NEO max is 2048]
-   [PIN Entry pops up, enter 12345678, which is the default admin pin]
-   The card will now be re-configured to generate a key of 4096 bits
-
-   What keysize do you want for the Authentication key? (2048) 4096 [YubiKey NEO max is 2048]
-   [PIN Entry pops up, enter 12345678, which is the default admin pin]
-   The card will now be re-configured to generate a key of 4096 bits
 
    Please specify how long the key should be valid.
             0 = key does not expire
@@ -120,20 +105,19 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
 
    Real name: <YOUR_NAME_HERE>
    Email address: <YOUR_EMAIL_HERE>
-   Comment:
+   Comment: <YUBIKEY IDENTIFIER, FAR/CLOSE>
    You selected this USER-ID:
        "YOUR_NAME_HERE <YOUR_EMAIL_HERE>"
 
    Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+
+   Please enter the Admin PIN (default: 12345678)
    ```
 
-   The YubiKey will flash as it's creating the key. Mine took about 5 minutes. When complete, it will say something like
+   The YubiKey will flash as it's creating the key. Mine took about 18 seconds. When complete, it will say something like
 
-   ```bash
-   gpg: key 00000000 marked as ultimately trusted
+   ```
    public and secret key created and signed.
-
-   [truncated...]
    ```
 
    You should change your PIN and Admin PIN. You can do that here with `passwd` at the `gpg/card>` prompt:
