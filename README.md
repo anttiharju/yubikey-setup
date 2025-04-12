@@ -66,6 +66,7 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
 
    Suggested hardened [configuration](https://github.com/ioerror/duraconf/blob/04f992ccd27fda38f742944066fbde39aa2ceb73/configs/gnupg/gpg.conf). Here's the minimum that makes sense:
 
+   <!--I don't actually know enough about gpg as of writing to judge this-->
    ```
    use-agent
    personal-cipher-preferences AES256 AES192 AES CAST5
