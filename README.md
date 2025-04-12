@@ -1,6 +1,6 @@
 # YubiKey macOS setup
 
-This is an updated (and limited) version of https://github.com/liyanchang/yubikey-setup. All credit to the original instructions.
+This is an updated (and limited) version of https://github.com/liyanchang/yubikey-setup. I ended up scrapping most of it, but credit to the original creator for the instructions.
 
 ## Issues I have faced
 
