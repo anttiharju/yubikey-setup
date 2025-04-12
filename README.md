@@ -16,9 +16,7 @@ This is highly opinionated on how you should and should not use your YubiKey
 but is organized well enough that you should be able to modify if you have a
 need.
 
-The instructions have been tested on macOS 10.12 (Sierra) with a YubiKey 4 and
-YubiKey Neo. While there are sections that are OS independent, most of the
-tricky bits are macOS specific.
+The instructions have been tested on macOS 15.3.2 (Sequioa) with a YubiKey 5C Nano. While there are sections that are OS independent, most of the tricky bits are macOS specific.
 
 To perform these instructions, the YubiKey should be plugged into your
 computer's USB port.
