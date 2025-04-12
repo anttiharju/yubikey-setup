@@ -209,6 +209,7 @@ You can generate an SSH key from your PGP key and use it for SSH logins.
 4. Attempt to login to the machine via SSH
 -->
 
+<!--
 ## YubiKey for PIV
 
 Yubico has a GUI tool called yubikey-piv-manager that can help set up your YubiKey for PIV. While I have a preference for command-line tools, the GUI sets everything up in one click and saves significant hassle.
@@ -234,6 +235,7 @@ Yubico has a GUI tool called yubikey-piv-manager that can help set up your YubiK
 5. Login with your YubiKey and PIN
 
    The next time you login with your YubiKey inserted, macOS should prompt you for your PIN and not a password.
+-->
 
 <!-- Notes from when I was trying to set it up by hand
 
@@ -281,13 +283,13 @@ Please paste the certificate...
 Successfully imported a new certificate.
 ```
 
--->
 
 ## YubiKey for OSX login
 
 Once you have PIV credentials on your YubiKey, macOS should prompt you if you want to use it for login.
 
 TODO: Look into `yubiswitch` to see how it will lock the screen when the YubiKey is removed.
+-->
 
 ## Set up your YubiKey at TOTP - a Google Authenticator replacement
 
