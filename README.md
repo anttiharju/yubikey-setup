@@ -4,7 +4,7 @@ Updated version of https://github.com/liyanchang/yubikey-setup. All credit to th
 
 ## Preface
 
-*You bought a YubiKey - now what?*
+_You bought a YubiKey - now what?_
 
 The goal is to outline the steps to configure your YubiKey in a sane method
 and to use it to maximize your security.
@@ -117,7 +117,7 @@ Yubico has [instructions](https://www.yubico.com/about/background/fido/)
 
    Suggested hardened [configuration](https://github.com/ioerror/duraconf/blob/master/configs/gnupg/gpg.conf).
    Here's the minimum that makes sense:
-   
+
    ```
    use-agent
    personal-cipher-preferences AES256 AES192 AES CAST5
@@ -146,7 +146,7 @@ Yubico has [instructions](https://www.yubico.com/about/background/fido/)
    Supported connections are: OTP, U2F, CCID
    ```
 
-3. Generate Keys
+4. Generate Keys
 
    _Note:_ If you have a YubiKey 4, you should use 4096 as your key length. NEO
    owners should use 2048 as that is the maximum supported.
@@ -255,9 +255,10 @@ Yubico has [instructions](https://www.yubico.com/about/background/fido/)
    Your selection? Q
    ```
 
-4. (Optional) Other GPG Setup
+5. (Optional) Other GPG Setup
 
    While you're here:
+
    ```bash
    gpg/card> name
    Cardholder's surname: [Your last name]
@@ -281,22 +282,22 @@ You can generate an SSH key from your PGP key and use it for SSH logins.
 
 1. Identify your authentication key.
 
-    ```bash
-    > gpg2 --card-status | grep Authentication
-    Authentication key: AAAA BBBB CCCC DDDD EEEE  FFFF GGGG HHHH IIII JJJJ
-    ```
+   ```bash
+   > gpg2 --card-status | grep Authentication
+   Authentication key: AAAA BBBB CCCC DDDD EEEE  FFFF GGGG HHHH IIII JJJJ
+   ```
 
 2. Generate the SSH key
 
-    Take the last 16 digits and pass them to `gpg --export-ssh-key`.
+   Take the last 16 digits and pass them to `gpg --export-ssh-key`.
 
-    ```bash
-    > gpg --export-ssh-key GGGGHHHHIIIIJJJJ
-    ssh-rsa AAAAG4AFq6wm1eCcRclsVOYcJf8y
-    ...
-    ...
-    G46wm1eCcRclsVOYcJf8yPr1b+kzUpGQLw==
-    ```
+   ```bash
+   > gpg --export-ssh-key GGGGHHHHIIIIJJJJ
+   ssh-rsa AAAAG4AFq6wm1eCcRclsVOYcJf8y
+   ...
+   ...
+   G46wm1eCcRclsVOYcJf8yPr1b+kzUpGQLw==
+   ```
 
 3. Copy the public key and add it `~/.ssh/authorized_keys` the machine you want to SSH into
 4. Attempt to login to the machine via SSH
@@ -309,31 +310,30 @@ sets everything up in one click and saves significant hassle.
 
 1. Install YubiKey PIV Manager
 
-    ```bash
-    > brew cask install Caskroom/cask/yubikey-piv-manager
-    ```
+   ```bash
+   > brew cask install Caskroom/cask/yubikey-piv-manager
+   ```
 
 2. Navigate to `Setup for macOS` and click `yes`.
 
-    Choose a 6-8 digit number. Don't use non-numeric characters. Yubikey will
-    be fine, but macOS will not.
+   Choose a 6-8 digit number. Don't use non-numeric characters. Yubikey will
+   be fine, but macOS will not.
 
-    The default settings are fine.
+   The default settings are fine.
 
 3. Remove and re-insert your YubiKey.
 
 4. Pair with macOS
 
-    When you insert your Yubikey, a prompt should appear asking if you would
-    like to pair your smartcard. Click `Pair`. It will ask for your username
-    and password as well as the pin you just created. It may also ask you for
-    your keychain password - it's the same as your account password.
+   When you insert your Yubikey, a prompt should appear asking if you would
+   like to pair your smartcard. Click `Pair`. It will ask for your username
+   and password as well as the pin you just created. It may also ask you for
+   your keychain password - it's the same as your account password.
 
 5. Login with your YubiKey and PIN
 
-    The next time you login with your YubiKey inserted, macOS should prompt
-    you for your PIN and not a password.
-
+   The next time you login with your YubiKey inserted, macOS should prompt
+   you for your PIN and not a password.
 
 <!-- Notes from when I was trying to set it up by hand
 
@@ -414,22 +414,22 @@ device will generate the same codes and will be able to access your account.
    type in the code to `Google Authenticator`.
 6. Copy the key below - don't forget to remove the spaces
 
-    ```bash
-    % The `-t` will require a touch inorder for codes to be generated.
-    % This prevent malware from generating codes without your knowledge.
-    % YubiKey Neo's do not support this feature. Just remove the `-t` flag.
-    > ykman oath add -t <SERVICE_NAME> <32 DIGIT BASE32 KEY NO SPACES>
-    > ykman oath code <SERVICE_NAME>
-    Touch your YubiKey...
-    SERVICE_NAME 693720
-    ```
+   ```bash
+   % The `-t` will require a touch inorder for codes to be generated.
+   % This prevent malware from generating codes without your knowledge.
+   % YubiKey Neo's do not support this feature. Just remove the `-t` flag.
+   > ykman oath add -t <SERVICE_NAME> <32 DIGIT BASE32 KEY NO SPACES>
+   > ykman oath code <SERVICE_NAME>
+   Touch your YubiKey...
+   SERVICE_NAME 693720
+   ```
 
 7. Repeat for other providers.
 
-    The steps will be similar - the difference will be how to get the manual
-    key instead of the QR code. When the QR code is displayed, there will
-    often be a link to get the code. Here are some examples:
+   The steps will be similar - the difference will be how to get the manual
+   key instead of the QR code. When the QR code is displayed, there will
+   often be a link to get the code. Here are some examples:
 
-    - Dropbox: `Enter your secret key manually`
-    - Gmail: `Can't scan it?`
-    - Github `Enter this text code`
+   - Dropbox: `Enter your secret key manually`
+   - Gmail: `Can't scan it?`
+   - Github `Enter this text code`
