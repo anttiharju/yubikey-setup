@@ -27,8 +27,6 @@ brew install openssh libfido2 ykman
 
 This will turn off One-Time-Password. Most users will not find OTP useful and will be confused by the random letters that will appear when they accidentally touch the YubiKey.
 
-_Exception:_ LastPass supports OTP and TOTP as a two factor method and does not support U2F. If you plan on using OTP with LastPass, you will want to skip this step. If you choose TOTP (README.md#set-up-your-yubikey-at-totp---a-google-authenticator-replacement) and don't set up OTP, I'd suggest you disable OTP.
-
 ```bash
 > ykman mode
 Current connection mode is: OTP+U2F+CCID
