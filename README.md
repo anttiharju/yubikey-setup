@@ -2,6 +2,12 @@
 
 Updated version of https://github.com/liyanchang/yubikey-setup. All credit to the original instructions.
 
+## Issues I have faced
+
+- GitHub does not allow no-touch-required https://github.com/orgs/community/discussions/10593 (minor issue by itself)
+- Homebrew private repository taps break with Yubikey https://github.com/Homebrew/brew/issues/11425
+- Ansible has very limited support for `ed25519-sk` ssh keys: https://github.com/ansible/ansible/issues/82131
+
 ## Preface
 
 _You bought a YubiKey - now what?_
