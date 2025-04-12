@@ -179,7 +179,7 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
 
    You can see the configuration by typing `list` on the `gpg/card>` prompt.
 
-   https://www.yubico.com/support/knowledge-base/categories/articles/use-yubikey-openpgp/
+   https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP
 
 ## YubiKey for SSH logins
 
