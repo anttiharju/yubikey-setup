@@ -117,3 +117,5 @@ For signing your Git commits, you probably want to use a `no-touch-required` key
 ```sh
 ssh-keygen -t ed25519-sk -C "$EMAIL" -O no-touch-required -f ~/.ssh/github-sign
 ```
+
+I started to sign my commits when I faced GitHub actions that pretended to act as me via `${{ github.actor }}`. I also enabled vigilant mode so now these bot-made commits have the label 'unverified' attached to them.
