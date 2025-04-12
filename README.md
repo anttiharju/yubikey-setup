@@ -181,6 +181,7 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
 
    https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP
 
+<!--
 ## YubiKey for SSH logins
 
 You can generate an SSH key from your PGP key and use it for SSH logins.
@@ -206,6 +207,7 @@ You can generate an SSH key from your PGP key and use it for SSH logins.
 
 3. Copy the public key and add it `~/.ssh/authorized_keys` the machine you want to SSH into
 4. Attempt to login to the machine via SSH
+-->
 
 ## YubiKey for PIV
 
