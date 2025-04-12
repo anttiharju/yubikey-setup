@@ -75,24 +75,6 @@ cert-digest-algo SHA512
 default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed
 ```
 
-3. Temporarily disable U2F
-
-   NOTE: This seemed not to be an issue with my most recent yubikey.
-
-   Having U2F enabled will result in `sharing violations` that results in `gpg2` not being able to access the YubiKey. You will be able to renable U2F and it won't break any sites you already set up with U2F.
-
-   ```bash
-   > ykman mode
-   Current connection mode is: U2F+CCID
-   Supported connections are: OTP, U2F, CCID
-   > ykman mode "CCID"
-   Set mode of YubiKey to CCID? [y/N]: Y
-   Mode set! You must remove and re-insert your YubiKey for this change to take effect.
-   > ykman mode
-   Current connection mode is: CCID
-   Supported connections are: OTP, U2F, CCID
-   ```
-
 4. Generate Keys
 
    _Note:_ If you have a YubiKey 4, you should use 4096 as your key length. NEO owners should use 2048 as that is the maximum supported.
