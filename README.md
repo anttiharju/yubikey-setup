@@ -122,15 +122,8 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
 
    You should change your PIN and Admin PIN. You can do that here with `passwd` at the `gpg/card>` prompt:
 
-   ```bash
-   > gpg --card-edit
-
-   ...truncated...
-
-   gpg/card> admin
-   Admin commands are allowed
-
-   gpg/card> passwd
+   ```
+   passwd
 
    1 - change PIN
    2 - unblock PIN
