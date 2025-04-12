@@ -18,10 +18,9 @@ To perform these instructions, the YubiKey should be plugged into your computer'
 
 ## Install some software
 
-```bash
-# For OSX
-> brew install python3 swig ykpers libu2f-host libusb
-> pip install yubikey-manager
+```sh
+# For macOS
+brew install openssh libfido2 ykman
 ```
 
 ## Turn off OTP - AKA the random letters when you accidentally touch it
