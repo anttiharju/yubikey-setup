@@ -78,8 +78,11 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
 
 3. Generate Keys
 
-   ```bash
-   > gpg2 --card-edit
+   ```sh
+   gpg2 --card-edit
+   ```
+
+   ```
 
    [truncated...]
 
