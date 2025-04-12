@@ -7,6 +7,8 @@ This is an updated (and limited) version of https://github.com/liyanchang/yubike
 - (non-issue) GitHub does not allow no-touch-required https://github.com/orgs/community/discussions/10593
 - (see workaround below) Homebrew private repository taps break with Yubikey https://github.com/Homebrew/brew/issues/11425
 - (open) Ansible has very limited support for `ed25519-sk` ssh keys: https://github.com/ansible/ansible/issues/82131
+  - I have tried using Strongbox on macOS as SSH agent. It does not solve the issue to a satisfactory degree.
+  - I have _not_ tried 1Password SSH agent. It may solve the issue to a satisfactory degree, and it is cross-platform.
 
 ### Homebrew private tap workaround
 
