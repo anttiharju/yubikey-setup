@@ -8,6 +8,45 @@ This is an updated (and limited) version of https://github.com/liyanchang/yubike
 - Homebrew private repository taps break with Yubikey https://github.com/Homebrew/brew/issues/11425
 - Ansible has very limited support for `ed25519-sk` ssh keys: https://github.com/ansible/ansible/issues/82131
 
+### Homebrew private tap workaround
+
+In all likelyhood you only have one or few private taps, so when you try to run `brew update && brew upgrade`, you may see an error like this:
+
+```
+==> Updating Homebrew..
+git@github.com: Permissions denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Error: Fetching $path failed!
+```
+
+You can go edit the git configuration of the failed path repository, i.e.
+
+```sh
+cd $path
+cd .git
+vim config
+```
+
+and you can add the following configuration:
+
+```
+[credential "https://github.com"]
+    helper= !gh auth git-credential
+```
+
+and also update the remote to use https protocol via
+
+```sh
+git remote set-url origin https://github.com/${org}/${repo}.git
+```
+
+and now your `brew update && brew upgrade` should work without a hitch.
+
+Whether you want the `gh` cli present on your system (because it enables a bypass like this) is a separate question.
+
 ## Preface
 
 _You bought a YubiKey - now what?_
