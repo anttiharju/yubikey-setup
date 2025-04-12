@@ -54,27 +54,6 @@ The instructions below are specific to provider, but they are all similar enough
 
 Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubikey/catalog/github/#setup-instructions).
 
-### Google
-
-1. Go to your [Google Sign-in & Security page](https://myaccount.google.com/security)
-2. Click `Two-step verification` and you may be prompted for your password.
-3. Click `Add Security Key` and follow the on-screen instructions. You may
-   need to tap or touch your YubiKey.
-
-Yubico has a [video](https://www.yubico.com/why-yubico/for-individuals/gmail-for-individuals/)
-
-### Dropbox
-
-1. Go to your [Dropbox Security Settings](https://www.dropbox.com/account/#security)
-2. Under `Security keys`, click `Add`
-3. Follow the on-screen instructions. You'll probably be prompted for your password and touch the YubiKey to complete registration.
-
-Yubico has a [video and more detailed instructions](https://www.yubico.com/why-yubico/for-individuals/dropbox-for-individuals/)
-
-### Dashlane, Salesforce, Bitbucket, Gitlab, GOV.UK Verify
-
-Yubico has [instructions](https://www.yubico.com/about/background/fido/)
-
 ## YubiKey for GPG keysigning
 
 1. Install GPG2 if you haven't already
