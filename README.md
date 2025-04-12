@@ -50,28 +50,6 @@ and now your `brew update && brew upgrade` should work without a hitch.
 
 Whether you want the `gh` cli present on your system (because it enables a bypass like this) is a separate question.
 
-## How to generate SSH keys for Git/GitHub
-
-There are non-discoverable credentials as described at [Passwordless SSH login with YubiKey and FIDO2](https://www.ajfriesen.com/yubikey-ssh-key/):
-
-> This will create an SSH key on your local system in ~/.ssh but only works together with the YubiKey. So if I remove my YubiKey or lose the YubiKey altogether I can not use this SSH key anymore. That also means other people can not use this YubiKey on their machines. But that also means I have to copy this private key to all of the servers I want to use this on.
-
-The behaviour described in the quote is desirable because I use Yubikey nanos which I intend to leave attached to my laptop at all times. The combination of a file and the key ensures that if someone yanks my physical key, it won't let them access my accounts.
-
-A Yubikey-backed ssh key for GitHub authentication can be generated like this:
-
-```sh
-ssh-keygen -t ed25519-sk -C "$EMAIL" -f ~/.ssh/github-auth
-```
-
-Set it up with GitHub (I trust you know how) and now all your Git operations require taps to proceed. You may want to disable automatic git fetches in your editors to avoid error messages.
-
-For signing your Git commits, you probably want to use a `no-touch-required` key, because otherwise it will encourage larger commits and make rebasing/merging a huge hassle:
-
-```sh
-ssh-keygen -t ed25519-sk -C "$EMAIL" -O no-touch-required -f ~/.ssh/github-sign
-```
-
 ## Preface
 
 _You bought a YubiKey - now what?_
@@ -117,3 +95,25 @@ The instructions below are specific to provider, but they are all similar enough
 6. Follow the instructions on screen - you'll probably need to tap the YubiKey for it to register.
 
 Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubikey/catalog/github/#setup-instructions).
+
+## How to generate SSH keys for Git/GitHub
+
+There are non-discoverable credentials as described at [Passwordless SSH login with YubiKey and FIDO2](https://www.ajfriesen.com/yubikey-ssh-key/):
+
+> This will create an SSH key on your local system in ~/.ssh but only works together with the YubiKey. So if I remove my YubiKey or lose the YubiKey altogether I can not use this SSH key anymore. That also means other people can not use this YubiKey on their machines. But that also means I have to copy this private key to all of the servers I want to use this on.
+
+The behaviour described in the quote is desirable because I use Yubikey nanos which I intend to leave attached to my laptop at all times. The combination of a file and the key ensures that if someone yanks my physical key, it won't let them access my accounts.
+
+A Yubikey-backed ssh key for GitHub authentication can be generated like this:
+
+```sh
+ssh-keygen -t ed25519-sk -C "$EMAIL" -f ~/.ssh/github-auth
+```
+
+Set it up with GitHub (I trust you know how) and now all your Git operations require taps to proceed. You may want to disable automatic git fetches in your editors to avoid error messages.
+
+For signing your Git commits, you probably want to use a `no-touch-required` key, because otherwise it will encourage larger commits and make rebasing/merging a huge hassle:
+
+```sh
+ssh-keygen -t ed25519-sk -C "$EMAIL" -O no-touch-required -f ~/.ssh/github-sign
+```
