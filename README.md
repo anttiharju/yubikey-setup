@@ -291,6 +291,7 @@ Once you have PIV credentials on your YubiKey, macOS should prompt you if you wa
 TODO: Look into `yubiswitch` to see how it will lock the screen when the YubiKey is removed.
 -->
 
+<!--
 ## Set up your YubiKey at TOTP - a Google Authenticator replacement
 
 You can have your YubiKey generate TOTP codes, just like Google Authenticator or Authy.
@@ -323,3 +324,4 @@ You can also use both a phone based app and a YubiKey, knowing that either devic
    - Dropbox: `Enter your secret key manually`
    - Gmail: `Can't scan it?`
    - Github `Enter this text code`
+-->
