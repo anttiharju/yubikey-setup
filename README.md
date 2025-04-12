@@ -78,8 +78,6 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
 
 3. Generate Keys
 
-   _Note:_ If you have a YubiKey 4, you should use 4096 as your key length. NEO owners should use 2048 as that is the maximum supported.
-
    ```bash
    > gpg2 --card-edit
 
