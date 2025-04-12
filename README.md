@@ -58,8 +58,8 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
 
 1. Install GPG2 if you haven't already
 
-   ```bash
-   > brew install gnupg gnupg2
+   ```sh
+   brew install gnupg gnupg2
    ```
 
 2. Configure your GPG conf at `~/.gnupg/gpg.conf`
