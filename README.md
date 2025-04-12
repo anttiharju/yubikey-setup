@@ -39,14 +39,14 @@ The instructions below are specific to provider, but they are all similar enough
 
 ### GitHub
 
-1. Go to your [GitHub Security Settings](https://github.com/settings/security)
+1. Go to your GitHub [Password and authentication](https://github.com/settings/security) settings
 2. Turn on `Two-factor Authentication` if it's not already enabled. You will need to set up either an SMS or TOTP (Google Authenticator) if it's not.
 3. Under `Security keys, choose `Register new device`
-4. Type in a name: `yourname-yubikey-nano4` or something else that will help you remember the key
+4. Type in a name: `yubikey-5c-nano` or something else that will help you remember the key. I have two identical Yubikeys and found it helpful to differentiate by the usb-c port they were in: `far` and `close`.
 5. Click `Add`
 6. Follow the instructions on screen - you'll probably need to tap the YubiKey for it to register.
 
-Yubico has more [detailed instructions](https://www.yubico.com/support/knowledge-base/categories/articles/use-yubikey-github/).
+Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubikey/catalog/github/#setup-instructions).
 
 ### Google
 
