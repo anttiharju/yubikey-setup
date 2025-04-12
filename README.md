@@ -67,13 +67,13 @@ Yubico has more [detailed instructions](https://www.yubico.com/works-with-yubike
    Suggested hardened [configuration](https://github.com/ioerror/duraconf/blob/04f992ccd27fda38f742944066fbde39aa2ceb73/configs/gnupg/gpg.conf). Here's the minimum that makes sense:
 
    <!--I don't actually know enough about gpg as of writing to judge this-->
-   ```
-   use-agent
-   personal-cipher-preferences AES256 AES192 AES CAST5
-   personal-digest-preferences SHA512 SHA384 SHA256 SHA224
-   cert-digest-algo SHA512
-   default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed
-   ```
+```
+use-agent
+personal-cipher-preferences AES256 AES192 AES CAST5
+personal-digest-preferences SHA512 SHA384 SHA256 SHA224
+cert-digest-algo SHA512
+default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed
+```
 
 3. Temporarily disable U2F
 
