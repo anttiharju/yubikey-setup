@@ -6,20 +6,15 @@ Updated version of https://github.com/liyanchang/yubikey-setup. All credit to th
 
 _You bought a YubiKey - now what?_
 
-The goal is to outline the steps to configure your YubiKey in a sane method
-and to use it to maximize your security.
+The goal is to outline the steps to configure your YubiKey in a sane method and to use it to maximize your security.
 
-This guide is for users who are comfortable with the command line and various
-technical jargon.
+This guide is for users who are comfortable with the command line and various technical jargon.
 
-This is highly opinionated on how you should and should not use your YubiKey
-but is organized well enough that you should be able to modify if you have a
-need.
+This is highly opinionated on how you should and should not use your YubiKey but is organized well enough that you should be able to modify if you have a need.
 
 The instructions have been tested on macOS 15.3.2 (Sequioa) with a YubiKey 5C Nano. While there are sections that are OS independent, most of the tricky bits are macOS specific.
 
-To perform these instructions, the YubiKey should be plugged into your
-computer's USB port.
+To perform these instructions, the YubiKey should be plugged into your computer's USB port.
 
 ## Install some software
 
@@ -31,14 +26,9 @@ computer's USB port.
 
 ## Turn off OTP - AKA the random letters when you accidentally touch it
 
-This will turn off One-Time-Password. Most users will not find OTP useful and
-will be confused by the random letters that will appear when they accidentally
-touch the YubiKey.
+This will turn off One-Time-Password. Most users will not find OTP useful and will be confused by the random letters that will appear when they accidentally touch the YubiKey.
 
-_Exception:_ LastPass supports OTP and TOTP as a two factor method and does not
-support U2F. If you plan on using OTP with LastPass, you will want to skip this
-step. If you choose TOTP (README.md#set-up-your-yubikey-at-totp---a-google-authenticator-replacement)
-and don't set up OTP, I'd suggest you disable OTP.
+_Exception:_ LastPass supports OTP and TOTP as a two factor method and does not support U2F. If you plan on using OTP with LastPass, you will want to skip this step. If you choose TOTP (README.md#set-up-your-yubikey-at-totp---a-google-authenticator-replacement) and don't set up OTP, I'd suggest you disable OTP.
 
 ```bash
 > ykman mode
@@ -60,24 +50,18 @@ Supported connections are: OTP, U2F, CCID
 
 ## Use for Two Factor Authentication / U2F Setup
 
-U2F is the recommended two factor method. It is phishing resistant unlike
-TOTP/Google Authenticator. It is much harder to compromise than SMS/Voice call
-methods.
+U2F is the recommended two factor method. It is phishing resistant unlike TOTP/Google Authenticator. It is much harder to compromise than SMS/Voice call methods.
 
-The instructions below are specific to provider, but they are all similar
-enough.
+The instructions below are specific to provider, but they are all similar enough.
 
 ### GitHub
 
 1. Go to your [GitHub Security Settings](https://github.com/settings/security)
-2. Turn on `Two-factor Authentication` if it's not already enabled. You will
-   need to set up either an SMS or TOTP (Google Authenticator) if it's not.
+2. Turn on `Two-factor Authentication` if it's not already enabled. You will need to set up either an SMS or TOTP (Google Authenticator) if it's not.
 3. Under `Security keys, choose `Register new device`
-4. Type in a name: `yourname-yubikey-nano4` or something else that will help
-   you remember the key
+4. Type in a name: `yourname-yubikey-nano4` or something else that will help you remember the key
 5. Click `Add`
-6. Follow the instructions on screen - you'll probably need to tap the YubiKey
-   for it to register.
+6. Follow the instructions on screen - you'll probably need to tap the YubiKey for it to register.
 
 Yubico has more [detailed instructions](https://www.yubico.com/support/knowledge-base/categories/articles/use-yubikey-github/).
 
@@ -94,8 +78,7 @@ Yubico has a [video](https://www.yubico.com/why-yubico/for-individuals/gmail-for
 
 1. Go to your [Dropbox Security Settings](https://www.dropbox.com/account/#security)
 2. Under `Security keys`, click `Add`
-3. Follow the on-screen instructions. You'll probably be prompted for your
-   password and touch the YubiKey to complete registration.
+3. Follow the on-screen instructions. You'll probably be prompted for your password and touch the YubiKey to complete registration.
 
 Yubico has a [video and more detailed instructions](https://www.yubico.com/why-yubico/for-individuals/dropbox-for-individuals/)
 
@@ -128,9 +111,7 @@ Yubico has [instructions](https://www.yubico.com/about/background/fido/)
 
    NOTE: This seemed not to be an issue with my most recent yubikey.
 
-   Having U2F enabled will result in `sharing violations` that results in `gpg2`
-   not being able to access the YubiKey. You will be able to renable U2F and it
-   won't break any sites you already set up with U2F.
+   Having U2F enabled will result in `sharing violations` that results in `gpg2` not being able to access the YubiKey. You will be able to renable U2F and it won't break any sites you already set up with U2F.
 
    ```bash
    > ykman mode
@@ -146,8 +127,7 @@ Yubico has [instructions](https://www.yubico.com/about/background/fido/)
 
 4. Generate Keys
 
-   _Note:_ If you have a YubiKey 4, you should use 4096 as your key length. NEO
-   owners should use 2048 as that is the maximum supported.
+   _Note:_ If you have a YubiKey 4, you should use 4096 as your key length. NEO owners should use 2048 as that is the maximum supported.
 
    ```bash
    > gpg2 --card-edit
@@ -195,8 +175,7 @@ Yubico has [instructions](https://www.yubico.com/about/background/fido/)
    Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
    ```
 
-   The YubiKey will flash as it's creating the key. Mine took about 5 minutes.
-   When complete, it will say something like
+   The YubiKey will flash as it's creating the key. Mine took about 5 minutes. When complete, it will say something like
 
    ```bash
    gpg: key 00000000 marked as ultimately trusted
@@ -205,8 +184,7 @@ Yubico has [instructions](https://www.yubico.com/about/background/fido/)
    [truncated...]
    ```
 
-   You should change your PIN and Admin PIN. You can do that here with `passwd`
-   at the `gpg/card>` prompt:
+   You should change your PIN and Admin PIN. You can do that here with `passwd` at the `gpg/card>` prompt:
 
    ```bash
    > gpg --card-edit
@@ -302,9 +280,7 @@ You can generate an SSH key from your PGP key and use it for SSH logins.
 
 ## YubiKey for PIV
 
-Yubico has a GUI tool called yubikey-piv-manager that can help set up your
-YubiKey for PIV. While I have a preference for command-line tools, the GUI
-sets everything up in one click and saves significant hassle.
+Yubico has a GUI tool called yubikey-piv-manager that can help set up your YubiKey for PIV. While I have a preference for command-line tools, the GUI sets everything up in one click and saves significant hassle.
 
 1. Install YubiKey PIV Manager
 
@@ -314,8 +290,7 @@ sets everything up in one click and saves significant hassle.
 
 2. Navigate to `Setup for macOS` and click `yes`.
 
-   Choose a 6-8 digit number. Don't use non-numeric characters. Yubikey will
-   be fine, but macOS will not.
+   Choose a 6-8 digit number. Don't use non-numeric characters. Yubikey will be fine, but macOS will not.
 
    The default settings are fine.
 
@@ -323,15 +298,11 @@ sets everything up in one click and saves significant hassle.
 
 4. Pair with macOS
 
-   When you insert your Yubikey, a prompt should appear asking if you would
-   like to pair your smartcard. Click `Pair`. It will ask for your username
-   and password as well as the pin you just created. It may also ask you for
-   your keychain password - it's the same as your account password.
+   When you insert your Yubikey, a prompt should appear asking if you would like to pair your smartcard. Click `Pair`. It will ask for your username and password as well as the pin you just created. It may also ask you for your keychain password - it's the same as your account password.
 
 5. Login with your YubiKey and PIN
 
-   The next time you login with your YubiKey inserted, macOS should prompt
-   you for your PIN and not a password.
+   The next time you login with your YubiKey inserted, macOS should prompt you for your PIN and not a password.
 
 <!-- Notes from when I was trying to set it up by hand
 
@@ -383,33 +354,23 @@ Successfully imported a new certificate.
 
 ## YubiKey for OSX login
 
-Once you have PIV credentials on your YubiKey, macOS should prompt you if you
-want to use it for login.
+Once you have PIV credentials on your YubiKey, macOS should prompt you if you want to use it for login.
 
-TODO: Look into `yubiswitch` to see how it will lock the screen when the
-YubiKey is removed.
+TODO: Look into `yubiswitch` to see how it will lock the screen when the YubiKey is removed.
 
 ## Set up your YubiKey at TOTP - a Google Authenticator replacement
 
-You can have your YubiKey generate TOTP codes, just like Google Authenticator
-or Authy.
+You can have your YubiKey generate TOTP codes, just like Google Authenticator or Authy.
 
-If you use it as a replacement for Google Authenticator, remember that you'll
-be unable to get the code if you don't have your YubiKey with you and a
-computer with `ykman` or `Yubico Authenticator` installed or an Android phone
-with `Yubico Authenticator` installed.
+If you use it as a replacement for Google Authenticator, remember that you'll be unable to get the code if you don't have your YubiKey with you and a computer with `ykman` or `Yubico Authenticator` installed or an Android phone with `Yubico Authenticator` installed.
 
-You can also use both a phone based app and a YubiKey, knowing that either
-device will generate the same codes and will be able to access your account.
+You can also use both a phone based app and a YubiKey, knowing that either device will generate the same codes and will be able to access your account.
 
 1. Go to [Dropbox Security Settings](https://www.dropbox.com/account/#security)
 2. Choose to enable two factor.
 3. Select `Use a mobile app`
-4. Click `enter your secret key manually` to display a 26 digit long base32 key.
-   Note: The link text will differ by provider. The length of the base32 key may
-   also differ.
-5. (Optional) If you also want to use your phone, you can scan the barcode or
-   type in the code to `Google Authenticator`.
+4. Click `enter your secret key manually` to display a 26 digit long base32 key. Note: The link text will differ by provider. The length of the base32 key may also differ.
+5. (Optional) If you also want to use your phone, you can scan the barcode or type in the code to `Google Authenticator`.
 6. Copy the key below - don't forget to remove the spaces
 
    ```bash
@@ -424,9 +385,7 @@ device will generate the same codes and will be able to access your account.
 
 7. Repeat for other providers.
 
-   The steps will be similar - the difference will be how to get the manual
-   key instead of the QR code. When the QR code is displayed, there will
-   often be a link to get the code. Here are some examples:
+   The steps will be similar - the difference will be how to get the manual key instead of the QR code. When the QR code is displayed, there will often be a link to get the code. Here are some examples:
 
    - Dropbox: `Enter your secret key manually`
    - Gmail: `Can't scan it?`
