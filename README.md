@@ -27,22 +27,8 @@ brew install openssh libfido2 ykman
 
 This will turn off One-Time-Password. Most users will not find OTP useful and will be confused by the random letters that will appear when they accidentally touch the YubiKey.
 
-```bash
-> ykman mode
-Current connection mode is: OTP+U2F+CCID
-Supported connections are: OTP, U2F, CCID
-> ykman mode "U2F+CCID"
-Set mode of YubiKey to U2F+CCID? [y/N]: Y
-Mode set! You must remove and re-insert your YubiKey for this change to take
-effect.
-```
-
-Remove and re-insert the YubiKey.
-
-```bash
-> ykman mode
-Current connection mode is: U2F+CCID
-Supported connections are: OTP, U2F, CCID
+```sh
+ykman config usb --disable OTP
 ```
 
 ## Use for Two Factor Authentication / U2F Setup
